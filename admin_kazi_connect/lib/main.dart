@@ -5,6 +5,7 @@ import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
 import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
+import 'theming.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,26 +37,36 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      title: 'Kazi Connect',
+      theme: lightThemeData.copyWith(
+          colorScheme: lightThemeData.colorScheme.copyWith(
+        onPrimary: onPrimaryColor,
+        primaryContainer: primaryContainer,
+        onPrimaryContainer: onPrimaryContainer,
+        secondary: secondaryColor,
+        onSecondary: onSecondaryColor,
+        secondaryContainer: secondaryContainer,
+        onSecondaryContainer: onSecondaryContainer,
+        tertiary: tertiaryColor,
+        onTertiary: onTertiaryColor,
+        tertiaryContainer: tertiaryContainer,
+        onTertiaryContainer: onTertiaryContainer,
+      )),
+      darkTheme: darkThemeData.copyWith(
+          colorScheme: darkThemeData.colorScheme.copyWith(
+        onPrimary: onPrimaryColorDark,
+        primaryContainer: primaryContainerDark,
+        onPrimaryContainer: onPrimaryContainerDark,
+        secondary: secondaryColorDark,
+        onSecondary: onSecondaryColorDark,
+        secondaryContainer: secondaryContainerDark,
+        onSecondaryContainer: onSecondaryContainerDark,
+        tertiary: tertiaryColorDark,
+        onTertiary: onTertiaryColorDark,
+        tertiaryContainer: tertiaryContainerDark,
+        onTertiaryContainer: onTertiaryContainerDark,
+      )),
+      themeMode: EasyDynamicTheme.of(context).themeMode,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
