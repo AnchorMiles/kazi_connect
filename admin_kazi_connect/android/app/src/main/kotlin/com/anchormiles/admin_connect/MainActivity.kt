@@ -1,4 +1,4 @@
-package com.anchormiles.kazi_connect
+package com.anchormiles.admin_connect
 
 import io.flutter.embedding.android.FlutterActivity
 
