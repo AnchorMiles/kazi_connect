@@ -34,10 +34,20 @@ var lightThemeData = ThemeData(
   primaryColor: primaryColor,
   useMaterial3: true,
   brightness: Brightness.light,
+  inputDecorationTheme: InputDecorationTheme(
+    border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: primaryColor)),
+  ),
 );
 
 var darkThemeData = ThemeData(
   primaryColor: primaryColorDark,
   useMaterial3: true,
   brightness: Brightness.dark,
+  inputDecorationTheme: InputDecorationTheme(
+    border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: primaryColor)),
+  ),
 );
