@@ -17,13 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
     Icons.account_box_outlined
   ];
 
-  List<String> appbarTitles = [
-    "Kazi Connect",
-    "Jobs",
-    "Messages",
-    "Profile",
-  ];
-
   List<String> bottomBarIconLabels = [
     "Home",
     "Jobs",
@@ -60,6 +53,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    TextStyle appbarTextStyle =
+        TextStyle(color: Theme.of(context).primaryColor);
+    List<Text> appbarTitles = [
+      Text(style: appbarTextStyle, "Kazi Connect"),
+      Text(style: appbarTextStyle, "Jobs"),
+      Text(style: appbarTextStyle, "Messages"),
+      Text(style: appbarTextStyle, "Profile"),
+    ];
+
     return Scaffold(
       drawer: Drawer(
         child: SingleChildScrollView(
@@ -93,13 +95,18 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       appBar: AppBar(
         // centerTitle: true,
-        title: Text(
-          appbarTitles[currentPageIndex],
-          style: TextStyle(color: Theme.of(context).primaryColor),
-        ),
+        title: AnimatedSwitcher(
+            duration: const Duration(seconds: 1),
+            child: appbarTitles[currentPageIndex]),
         actions: [
-          IconButton(onPressed: () {},tooltip: "Search", icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, tooltip: "Post a Job",icon: const Icon(Icons.add)),
+          if (currentPageIndex == 1) IconButton(
+              onPressed: () {},
+              tooltip: "Search",
+              icon: const Icon(Icons.search)),
+          IconButton(
+              onPressed: () {},
+              tooltip: "Post a Job",
+              icon: const Icon(Icons.add)),
           PopupMenuButton(
               position: PopupMenuPosition.under,
               onSelected: (value) {
