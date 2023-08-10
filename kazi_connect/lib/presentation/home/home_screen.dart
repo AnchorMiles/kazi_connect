@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../utils.dart';
+import 'bottomnav_pages/profile.dart';
+import 'popupmenu_destinations/applied_jobs.dart';
+import 'popupmenu_destinations/feedback.dart';
+import 'popupmenu_destinations/saved_jobs.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -28,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Column(),
     Column(),
     Column(),
-    Column(),
+    ProfilePage(),
   ];
 
   Widget _getBottomBar() => BottomNavigationBar(
@@ -99,10 +105,11 @@ class _HomeScreenState extends State<HomeScreen> {
             duration: const Duration(seconds: 1),
             child: appbarTitles[currentPageIndex]),
         actions: [
-          if (currentPageIndex == 1) IconButton(
-              onPressed: () {},
-              tooltip: "Search",
-              icon: const Icon(Icons.search)),
+          if (currentPageIndex == 1)
+            IconButton(
+                onPressed: () {},
+                tooltip: "Search",
+                icon: const Icon(Icons.search)),
           IconButton(
               onPressed: () {},
               tooltip: "Post a Job",
@@ -112,13 +119,25 @@ class _HomeScreenState extends State<HomeScreen> {
               onSelected: (value) {
                 switch (value) {
                   case "Saved Jobs":
-                    {}
+                    {
+                      nextPage(context: context, page: const SavedJobsPage());
+                    }
                   case "Applied Jobs":
-                    {}
+                    {
+                      nextPage(context: context, page: const AppliedJobsPage());
+                    }
+
                   case "Invite Friends":
-                    {}
+                    {
+                      onShareData(
+                          context,
+                          "https://play.google.com/store/apps/details?id=com.ancormiles.connect",
+                          'Kazi Connect App Link');
+                    }
                   case "Feedback":
-                    {}
+                    {
+                      nextPage(context: context, page: const FeedbackPage());
+                    }
                 }
               },
               itemBuilder: (ctx) {

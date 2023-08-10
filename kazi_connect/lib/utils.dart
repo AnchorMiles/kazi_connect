@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // Navigation - next page
@@ -64,4 +65,14 @@ String getUserName() {
     return displayName.toString();
   }
   return email.toString();
+}
+
+/// shares data to other apps
+onShareData(context, text, subject) async {
+  final RenderBox box = context.findRenderObject();
+  {
+    await Share.share(text,
+        subject: subject,
+        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+  }
 }
