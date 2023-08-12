@@ -141,8 +141,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               },
               itemBuilder: (ctx) {
-                return const [
-                  PopupMenuItem(
+                return [
+                  if (currentPageIndex != 3)PopupMenuItem(
                       value: "Saved Jobs",
                       child: Row(
                         children: [
@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text("Saved Jobs")
                         ],
                       )),
-                  PopupMenuItem(
+                  if (currentPageIndex != 3) PopupMenuItem(
                       value: "Applied Jobs",
                       child: Row(
                         children: [

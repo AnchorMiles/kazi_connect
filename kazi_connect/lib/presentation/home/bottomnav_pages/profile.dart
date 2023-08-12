@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 
 import '../../../utils.dart';
+import '../popupmenu_destinations/applied_jobs.dart';
+import '../popupmenu_destinations/saved_jobs.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -33,6 +35,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Card(
+        elevation: 0.2,
         child: SizedBox(
           width: 189,
           height: 60,
@@ -83,7 +86,6 @@ class _ProfilePageState extends State<ProfilePage> {
         ListTile(
           leading: Icon(
             Icons.email_outlined,
-            color: Theme.of(context).primaryColor,
           ),
           title: const Text('Email Verification'),
           subtitle: isEmailVerified
@@ -111,35 +113,73 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         const SizedBox(height: 8),
         ListTile(
-          leading: Icon(Icons.phone_outlined, color: Theme.of(context).primaryColor,),
+          leading: Icon(
+            Icons.phone_outlined,
+            color: Theme.of(context).primaryColor,
+          ),
           title: Text("Phone"),
           subtitle: Text("+254712345678"),
-          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.edit)),
+          trailing: IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
         ),
         const SizedBox(height: 8),
         ListTile(
-          leading: Icon(Icons.insert_drive_file_outlined, color: Theme.of(context).primaryColor,),
+          leading: Icon(
+            Icons.file_copy_outlined,
+            color: Theme.of(context).primaryColor,
+          ),
+          title: Text("Resume"),
+          subtitle: Text("(optional)"),
+          trailing: IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
+        ),
+        const SizedBox(height: 8),
+        ListTile(
+          leading: Icon(
+            Icons.insert_drive_file_outlined,
+            color: Theme.of(context).primaryColor,
+          ),
           title: Text("Bio"),
           subtitle: Text("Update your bio"),
-          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.edit)),
+          trailing: IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
         ),
         const SizedBox(height: 8.0),
         ListTile(
-          leading: Icon(Icons.account_circle_outlined, color: Theme.of(context).primaryColor,),
+          leading: Icon(
+            Icons.account_circle_outlined,
+            color: Theme.of(context).primaryColor,
+          ),
           title: Text("Status"),
           subtitle: Text("Job Seeker"),
-          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.edit)),
+          trailing: IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
         ),
         const SizedBox(height: 8.0),
         ListTile(
-          leading: Icon(Icons.business, color: Theme.of(context).primaryColor,),
+          leading: Icon(
+            Icons.business,
+            color: Theme.of(context).primaryColor,
+          ),
           title: Text("Interest"),
           subtitle: Text("Information Technology"),
-          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.edit)),
+          trailing: IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
         ),
         const SizedBox(height: 18.0),
         Wrap(
           children: [
+            bodyItem(
+                iconData: Icons.bookmark_border_rounded,
+                iconColor: Theme.of(context).primaryColor,
+                title: "Saved Jobs",
+                titleColor: Theme.of(context).primaryColor,
+                onTap: () {
+                  nextPage(context: context, page: const SavedJobsPage());
+                }),
+            bodyItem(
+                iconData: Icons.bookmark_border_rounded,
+                iconColor: Theme.of(context).primaryColor,
+                title: "Applied Jobs",
+                titleColor: Theme.of(context).primaryColor,
+                onTap: () {
+                  nextPage(context: context, page: const AppliedJobsPage());
+                }),
             bodyItem(
                 iconData: Icons.logout,
                 iconColor: Theme.of(context).primaryColor,
@@ -154,8 +194,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Theme.of(context).primaryColor,
                       ),
                       title: const Text("Sign Out"),
-                      content:
-                          const Text("Are you sure you want to sign out?"),
+                      content: const Text("Are you sure you want to sign out?"),
                       actions: [
                         TextButton(
                           onPressed: () {
@@ -190,8 +229,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Colors.red,
                       ),
                       title: const Text("Sign Out"),
-                      content:
-                          const Text("Are you sure you want to sign out?"),
+                      content: const Text("Are you sure you want to sign out?"),
                       actions: [
                         TextButton(
                           onPressed: () {
@@ -200,10 +238,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                 context: context,
                                 builder: (ctx) {
                                   return AlertDialog(
-                                    title: const Text('Warning: Account Deletion'),
+                                    title:
+                                        const Text('Warning: Account Deletion'),
                                     content: const Column(
                                       mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           'Are you sure you want to delete your account?',
@@ -225,9 +265,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                           // Implement the logic for confirming account deletion
                                           Navigator.of(context).pop();
 
-                                          ScaffoldMessenger.of(context).showSnackBar(
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
                                             const SnackBar(
-                                              content: Text('Deleting account data...'),
+                                              content: Text(
+                                                  'Deleting account data...'),
                                             ),
                                           );
 
@@ -284,8 +326,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   );
                 }),
-          ]
-          ,
+          ],
         ),
       ],
     );
