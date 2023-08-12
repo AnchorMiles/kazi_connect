@@ -110,11 +110,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {},
                 tooltip: "Search",
                 icon: const Icon(Icons.search)),
-          IconButton(
+
+          if (currentPageIndex == 3)IconButton(
+              onPressed: () {},
+              tooltip: "Edit Profile",
+              icon: const Icon(Icons.edit)),
+
+          if (currentPageIndex != 3)IconButton(
               onPressed: () {},
               tooltip: "Post a Job",
               icon: const Icon(Icons.add)),
-          PopupMenuButton(
+          if (currentPageIndex != 3)PopupMenuButton(
               position: PopupMenuPosition.under,
               onSelected: (value) {
                 switch (value) {
