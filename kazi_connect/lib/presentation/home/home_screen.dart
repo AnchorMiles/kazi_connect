@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_connect/presentation/home/edit_profile/edit_profile.dart';
 
 import '../../utils.dart';
 import 'bottomnav_pages/profile.dart';
@@ -110,90 +111,95 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {},
                 tooltip: "Search",
                 icon: const Icon(Icons.search)),
+          if (currentPageIndex == 3)
+            IconButton(
+                onPressed: () =>
+                    nextPage(context: context, page: const EditProfilePage()),
+                tooltip: "Edit Profile",
+                icon:  Icon(Icons.edit, color: Theme.of(context).primaryColor,)),
+          if (currentPageIndex != 3)
+            IconButton(
+                onPressed: () {},
+                tooltip: "Post a Job",
+                icon: const Icon(Icons.add)),
+          if (currentPageIndex != 3)
+            PopupMenuButton(
+                position: PopupMenuPosition.under,
+                onSelected: (value) {
+                  switch (value) {
+                    case "Saved Jobs":
+                      {
+                        nextPage(context: context, page: const SavedJobsPage());
+                      }
+                    case "Applied Jobs":
+                      {
+                        nextPage(
+                            context: context, page: const AppliedJobsPage());
+                      }
 
-          if (currentPageIndex == 3)IconButton(
-              onPressed: () {},
-              tooltip: "Edit Profile",
-              icon: const Icon(Icons.edit)),
-
-          if (currentPageIndex != 3)IconButton(
-              onPressed: () {},
-              tooltip: "Post a Job",
-              icon: const Icon(Icons.add)),
-          if (currentPageIndex != 3)PopupMenuButton(
-              position: PopupMenuPosition.under,
-              onSelected: (value) {
-                switch (value) {
-                  case "Saved Jobs":
-                    {
-                      nextPage(context: context, page: const SavedJobsPage());
-                    }
-                  case "Applied Jobs":
-                    {
-                      nextPage(context: context, page: const AppliedJobsPage());
-                    }
-
-                  case "Invite Friends":
-                    {
-                      onShareData(
-                          context,
-                          "https://play.google.com/store/apps/details?id=com.ancormiles.connect",
-                          'Kazi Connect App Link');
-                    }
-                  case "Feedback":
-                    {
-                      nextPage(context: context, page: const FeedbackPage());
-                    }
-                }
-              },
-              itemBuilder: (ctx) {
-                return [
-                  if (currentPageIndex != 3)PopupMenuItem(
-                      value: "Saved Jobs",
-                      child: Row(
-                        children: [
-                          Icon(Icons.bookmark_border_rounded),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text("Saved Jobs")
-                        ],
-                      )),
-                  if (currentPageIndex != 3) PopupMenuItem(
-                      value: "Applied Jobs",
-                      child: Row(
-                        children: [
-                          Icon(Icons.view_timeline_outlined),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text("Applied Jobs")
-                        ],
-                      )),
-                  PopupMenuItem(
-                      value: "Invite Friends",
-                      child: Row(
-                        children: [
-                          Icon(Icons.share),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text("Invite Friends")
-                        ],
-                      )),
-                  PopupMenuItem(
-                      value: "Feedback",
-                      child: Row(
-                        children: [
-                          Icon(Icons.feedback_outlined),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text("Feedback")
-                        ],
-                      )),
-                ];
-              })
+                    case "Invite Friends":
+                      {
+                        onShareData(
+                            context,
+                            "https://play.google.com/store/apps/details?id=com.ancormiles.connect",
+                            'Kazi Connect App Link');
+                      }
+                    case "Feedback":
+                      {
+                        nextPage(context: context, page: const FeedbackPage());
+                      }
+                  }
+                },
+                itemBuilder: (ctx) {
+                  return [
+                    if (currentPageIndex != 3)
+                      PopupMenuItem(
+                          value: "Saved Jobs",
+                          child: Row(
+                            children: [
+                              Icon(Icons.bookmark_border_rounded),
+                              SizedBox(
+                                width: 12,
+                              ),
+                              Text("Saved Jobs")
+                            ],
+                          )),
+                    if (currentPageIndex != 3)
+                      PopupMenuItem(
+                          value: "Applied Jobs",
+                          child: Row(
+                            children: [
+                              Icon(Icons.view_timeline_outlined),
+                              SizedBox(
+                                width: 12,
+                              ),
+                              Text("Applied Jobs")
+                            ],
+                          )),
+                    PopupMenuItem(
+                        value: "Invite Friends",
+                        child: Row(
+                          children: [
+                            Icon(Icons.share),
+                            SizedBox(
+                              width: 12,
+                            ),
+                            Text("Invite Friends")
+                          ],
+                        )),
+                    PopupMenuItem(
+                        value: "Feedback",
+                        child: Row(
+                          children: [
+                            Icon(Icons.feedback_outlined),
+                            SizedBox(
+                              width: 12,
+                            ),
+                            Text("Feedback")
+                          ],
+                        )),
+                  ];
+                })
         ],
       ),
       body: homeScreenPages[currentPageIndex],

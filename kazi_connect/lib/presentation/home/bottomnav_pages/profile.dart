@@ -59,18 +59,22 @@ class _ProfilePageState extends State<ProfilePage> {
       child: ListView(
         children: [
           ListTile(
-            leading: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: CachedNetworkImage(
-                imageUrl: userprofileUrl,
-                fit: BoxFit.fill,
-                errorWidget: (ctx, url, downloadProgress) {
-                  return Icon(
-                    Icons.account_circle_outlined,
-                    size: 120,
-                    color: Theme.of(context).primaryColor,
-                  );
-                },
+            leading: SizedBox(
+              height: 60,
+              width: 60,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: CachedNetworkImage(
+                  imageUrl: userprofileUrl,
+                  fit: BoxFit.cover,
+                  errorWidget: (ctx, url, downloadProgress) {
+                    return Icon(
+                      Icons.account_circle_outlined,
+                      size: 120,
+                      color: Theme.of(context).primaryColor,
+                    );
+                  },
+                ),
               ),
             ),
             title: Text(
