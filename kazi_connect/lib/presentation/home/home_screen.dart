@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_connect/presentation/home/bottomnav_pages/jobs.dart';
 import 'package:kazi_connect/presentation/home/drawer_destinations/about.dart';
 import 'package:kazi_connect/presentation/home/drawer_destinations/help_support.dart';
 import 'package:kazi_connect/presentation/home/drawer_destinations/terms_of_service.dart';
 import 'package:kazi_connect/presentation/home/edit_profile/edit_profile.dart';
 
 import '../../utils.dart';
+import 'bottomnav_pages/messages.dart';
 import 'bottomnav_pages/profile.dart';
-import 'popupmenu_destinations/applied_jobs.dart';
-import 'popupmenu_destinations/feedback.dart';
-import 'popupmenu_destinations/saved_jobs.dart';
+import 'appbar_destinations/applied_jobs.dart';
+import 'appbar_destinations/feedback.dart';
+import 'appbar_destinations/saved_jobs.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,8 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> homeScreenPages = const [
     Column(),
-    Column(),
-    Column(),
+    JobsPage(),
+    MessagesPage(),
     ProfilePage(),
   ];
 
