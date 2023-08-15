@@ -6,7 +6,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kazi_connect/theming.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
@@ -149,7 +148,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ],
           ),
           if (image != null && editingImage)
-            SizedBox(height: 8),if (image != null && editingImage)
+            const SizedBox(height: 8),if (image != null && editingImage)
             ElevatedButton(
                 onPressed: () async {
                   if (image == null) {

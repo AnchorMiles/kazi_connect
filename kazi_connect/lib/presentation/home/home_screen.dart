@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_connect/presentation/home/drawer_destinations/about.dart';
+import 'package:kazi_connect/presentation/home/drawer_destinations/help_support.dart';
+import 'package:kazi_connect/presentation/home/drawer_destinations/terms_of_service.dart';
 import 'package:kazi_connect/presentation/home/edit_profile/edit_profile.dart';
 
 import '../../utils.dart';
@@ -77,12 +80,16 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 380),
               const Divider(),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  nextPage(context: context, page: const HelpSupportPage());
+                },
                 title: const Text("Help & Support"),
                 leading: const Icon(Icons.help_outline),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  nextPage(context: context, page: const TermsOfServicePage());
+                },
                 title: const Text("Terms of Service"),
                 leading: const Icon(Icons.playlist_add_check_circle_outlined),
               ),
@@ -92,7 +99,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 leading: const Icon(Icons.privacy_tip_outlined),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  nextPage(context: context, page: AboutPage());
+                },
                 title: const Text("About"),
                 leading: const Icon(Icons.help_outline),
               ),
@@ -116,7 +125,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () =>
                     nextPage(context: context, page: const EditProfilePage()),
                 tooltip: "Edit Profile",
-                icon:  Icon(Icons.edit, color: Theme.of(context).primaryColor,)),
+                icon: Icon(
+                  Icons.edit,
+                  color: Theme.of(context).primaryColor,
+                )),
           if (currentPageIndex != 3)
             IconButton(
                 onPressed: () {},
@@ -153,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (ctx) {
                   return [
                     if (currentPageIndex != 3)
-                      PopupMenuItem(
+                      const PopupMenuItem(
                           value: "Saved Jobs",
                           child: Row(
                             children: [
@@ -165,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           )),
                     if (currentPageIndex != 3)
-                      PopupMenuItem(
+                      const PopupMenuItem(
                           value: "Applied Jobs",
                           child: Row(
                             children: [
@@ -176,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text("Applied Jobs")
                             ],
                           )),
-                    PopupMenuItem(
+                    const PopupMenuItem(
                         value: "Invite Friends",
                         child: Row(
                           children: [
@@ -187,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text("Invite Friends")
                           ],
                         )),
-                    PopupMenuItem(
+                    const PopupMenuItem(
                         value: "Feedback",
                         child: Row(
                           children: [
