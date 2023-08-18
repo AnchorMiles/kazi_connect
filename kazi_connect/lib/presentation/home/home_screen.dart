@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kazi_connect/presentation/home/bottomnav_pages/jobs.dart';
 import 'package:kazi_connect/presentation/home/drawer_destinations/about.dart';
 import 'package:kazi_connect/presentation/home/drawer_destinations/help_support.dart';
+import 'package:kazi_connect/presentation/home/drawer_destinations/notifications.dart';
 import 'package:kazi_connect/presentation/home/drawer_destinations/terms_of_service.dart';
 import 'package:kazi_connect/presentation/home/edit_profile/edit_profile.dart';
 
@@ -77,37 +78,47 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       drawer: Drawer(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 380),
-              const Divider(),
-              ListTile(
-                onTap: () {
-                  nextPage(context: context, page: const HelpSupportPage());
-                },
-                title: const Text("Help & Support"),
-                leading: const Icon(Icons.help_outline),
-              ),
-              ListTile(
-                onTap: () {
-                  nextPage(context: context, page: const TermsOfServicePage());
-                },
-                title: const Text("Terms of Service"),
-                leading: const Icon(Icons.playlist_add_check_circle_outlined),
-              ),
-              ListTile(
-                onTap: () {},
-                title: const Text("Privacy Policy"),
-                leading: const Icon(Icons.privacy_tip_outlined),
-              ),
-              ListTile(
-                onTap: () {
-                  nextPage(context: context, page: AboutPage());
-                },
-                title: const Text("About"),
-                leading: const Icon(Icons.help_outline),
-              ),
-            ],
+          child: Card(
+            child: Column(
+              children: [
+                const SizedBox(height: 380),
+                const Divider(),
+                ListTile(
+                  onTap: () {
+                    nextPage(context: context, page: const NotificationsPage());
+                  },
+                  title: const Text("Notifications"),
+                  leading: const Icon(Icons.notifications_none),
+                ),
+                ListTile(
+                  onTap: () {
+                    nextPage(context: context, page: const HelpSupportPage());
+                  },
+                  title: const Text("Help & Support"),
+                  leading: const Icon(Icons.help_outline),
+                ),
+                ListTile(
+                  onTap: () {
+                    nextPage(
+                        context: context, page: const TermsOfServicePage());
+                  },
+                  title: const Text("Terms of Service"),
+                  leading: const Icon(Icons.playlist_add_check_circle_outlined),
+                ),
+                ListTile(
+                  onTap: () {},
+                  title: const Text("Privacy Policy"),
+                  leading: const Icon(Icons.privacy_tip_outlined),
+                ),
+                ListTile(
+                  onTap: () {
+                    nextPage(context: context, page: const AboutPage());
+                  },
+                  title: const Text("About"),
+                  leading: const Icon(Icons.help_outline),
+                ),
+              ],
+            ),
           ),
         ),
       ),
