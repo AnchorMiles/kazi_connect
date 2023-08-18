@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_connect/presentation/home/jobs_destinations/job_info.dart';
+import 'package:kazi_connect/utils.dart';
 
 var loremIpsumText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a congue magna, "
@@ -8,7 +10,7 @@ var loremIpsumText =
     "quis facilisis justo enim vel ex. Aliquam eu gravida leo, in consequat elit. Integer sed metus odio. "
     "Etiam nec pretium mi. Nam ac elementum turpis. Nunc iaculis mi eu erat consectetur ornare.";
 
-Widget jobItem() {
+Widget jobItem({required BuildContext context}) {
   return ListTile(
     title: Text(
       "Job title",
@@ -19,5 +21,6 @@ Widget jobItem() {
       maxLines: 4,
       overflow: TextOverflow.ellipsis,
     ),
+    onTap: () {nextPage(context: context, page: const JobInfoPage());},
   );
 }
