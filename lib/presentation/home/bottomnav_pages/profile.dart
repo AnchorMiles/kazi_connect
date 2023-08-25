@@ -2,10 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils.dart';
-import '../appbar_destinations/applied_jobs.dart';
-import '../appbar_destinations/saved_jobs.dart';
-
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -57,7 +53,6 @@ class _ProfilePageState extends State<ProfilePage> {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 600),
       child: ListView(
-
         children: [
           ListTile(
             leading: SizedBox(
@@ -334,26 +329,6 @@ class _ProfilePageState extends State<ProfilePage> {
             subtitle: const Text("Information Technology"),
           ),
           const SizedBox(height: 18.0),
-          Wrap(
-            children: [
-              bodyItem(
-                  iconData: Icons.bookmark_border_rounded,
-                  iconColor: Theme.of(context).primaryColor,
-                  title: "Saved Jobs",
-                  titleColor: Theme.of(context).primaryColor,
-                  onTap: () {
-                    nextPage(context: context, page: const SavedJobsPage());
-                  }),
-              bodyItem(
-                  iconData: Icons.bookmark_border_rounded,
-                  iconColor: Theme.of(context).primaryColor,
-                  title: "Applied Jobs",
-                  titleColor: Theme.of(context).primaryColor,
-                  onTap: () {
-                    nextPage(context: context, page: const AppliedJobsPage());
-                  }),
-            ],
-          ),
         ],
       ),
     );
