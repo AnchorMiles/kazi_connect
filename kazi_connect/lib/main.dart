@@ -44,6 +44,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Kazi Connect',
+      debugShowCheckedModeBanner: false,
       theme: lightThemeData.copyWith(
           colorScheme: lightThemeData.colorScheme.copyWith(
         onPrimary: onPrimaryColor,

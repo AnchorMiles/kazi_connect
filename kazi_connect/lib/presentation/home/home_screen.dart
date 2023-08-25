@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_connect/presentation/home/appbar_destinations/search_page.dart';
 import 'package:kazi_connect/presentation/home/bottomnav_pages/jobs.dart';
 import 'package:kazi_connect/presentation/home/drawer_destinations/about.dart';
 import 'package:kazi_connect/presentation/home/drawer_destinations/help_support.dart';
@@ -77,6 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       drawer: Drawer(
+        elevation: 16,
         child: SingleChildScrollView(
           child: Card(
             elevation: 0,
@@ -131,22 +133,24 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           if (currentPageIndex == 1)
             IconButton(
-                onPressed: () {},
                 tooltip: "Search",
+                onPressed: () {
+                  nextPage(context: context, page: SearchPage());
+                },
                 icon: const Icon(Icons.search)),
           if (currentPageIndex == 3)
             IconButton(
+                tooltip: "Edit Profile",
                 onPressed: () =>
                     nextPage(context: context, page: const EditProfilePage()),
-                tooltip: "Edit Profile",
                 icon: Icon(
                   Icons.edit,
                   color: Theme.of(context).primaryColor,
                 )),
           if (currentPageIndex != 3)
             IconButton(
-                onPressed: () {},
                 tooltip: "Post a Job",
+                onPressed: () {},
                 icon: const Icon(Icons.add)),
           if (currentPageIndex != 3)
             PopupMenuButton(
