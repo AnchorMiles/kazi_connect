@@ -48,7 +48,7 @@ Future<void> openWhatsApp({String message = ""}) async {
 }
 
 sendEmail() async {
-  String email = Uri.encodeComponent("swwakoli@gmail.com");
+  String email = Uri.encodeComponent("info@kaziconnect.com");
   String subject = Uri.encodeComponent("[Insert Subject]");
   String body = Uri.encodeComponent("");
   Uri mail = Uri.parse("mailto:$email?subject=$subject&body=$body");
@@ -70,9 +70,8 @@ String getUserName() {
 /// shares data to other apps
 onShareData(context, text, subject) async {
   final RenderBox box = context.findRenderObject();
-  {
-    await Share.share(text,
-        subject: subject,
-        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
-  }
+
+  await Share.share(text,
+      subject: subject,
+      sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
 }
