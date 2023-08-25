@@ -57,6 +57,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 600),
       child: ListView(
+
         children: [
           ListTile(
             leading: SizedBox(

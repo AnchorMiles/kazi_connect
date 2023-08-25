@@ -13,7 +13,13 @@ class _MessageBoxPageState extends State<MessageBoxPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("message box"),
+        title: const Text("Sender Name"),
+        actions: const [
+          Icon(
+            Icons.account_circle_outlined,
+            size: 38,
+          )
+        ],
       ),
     );
   }

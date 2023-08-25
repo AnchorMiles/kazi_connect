@@ -79,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: Drawer(
         child: SingleChildScrollView(
           child: Card(
+            elevation: 0,
             child: Column(
               children: [
                 const SizedBox(height: 380),
