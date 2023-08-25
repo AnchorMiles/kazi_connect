@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/kazi_connect.iml" filepath="$PROJECT_DIR$/.idea/kazi_connect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kazi_connect/.idea/kazi_connect.iml" filepath="$PROJECT_DIR$/kazi_connect/.idea/kazi_connect.iml" />
     </modules>
   </component>
 </project>
