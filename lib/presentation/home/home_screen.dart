@@ -84,6 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       drawer: Drawer(
         elevation: 16,
+        backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
         child: SingleChildScrollView(
           child: Card(
             elevation: 0,

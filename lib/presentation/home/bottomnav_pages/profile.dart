@@ -256,8 +256,9 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           const SizedBox(height: 8),
           ListTile(
-            leading: const Icon(
+            leading: Icon(
               Icons.email_outlined,
+              color: Theme.of(context).colorScheme.secondary,
             ),
             title: const Text('Email Verification'),
             subtitle: isEmailVerified
