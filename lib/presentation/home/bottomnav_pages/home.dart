@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_connect/presentation/home/drawer_destinations/about.dart';
+import 'package:kazi_connect/presentation/home/drawer_destinations/help_support.dart';
+import 'package:kazi_connect/presentation/home/edit_profile/edit_profile.dart';
+import 'package:kazi_connect/presentation/home/homepage_destinations/how_it_works.dart';
+import 'package:kazi_connect/presentation/home/homepage_destinations/tips_and_advice.dart';
 import 'package:kazi_connect/utils.dart';
 
 import '../../../logic/get_daytime.dart';
@@ -90,9 +95,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        const SizedBox(
-          height: 20,
-        ),
+        SizedBox(height: 10),
         const Padding(
           padding: EdgeInsets.all(8.0),
           child: Card(
@@ -104,13 +107,21 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Center(
-              child: Text(
-            "Actions",
-            style:
-                TextStyle(fontSize: 16, color: Theme.of(context).primaryColor),
-          )),
+          padding: const EdgeInsets.all(8.0),
+          child: Card(
+            elevation: 0.2,
+            child: ListTile(
+              leading: Icon(
+                Icons.work_outline,
+                color: Theme.of(context).primaryColor,
+              ),
+              title: Text(
+                "How it works",
+                style: TextStyle(color: Theme.of(context).primaryColor),
+              ),
+              onTap: () => nextPage(context: context, page: const HowItWorks()),
+            ),
+          ),
         ),
         Wrap(
           children: [
@@ -123,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                   nextPage(context: context, page: const SavedJobsPage());
                 }),
             bodyItem(
-                iconData: Icons.bookmark_border_rounded,
+                iconData: Icons.file_copy_outlined,
                 iconColor: Theme.of(context).primaryColor,
                 title: "Applied Jobs",
                 titleColor: Theme.of(context).primaryColor,
@@ -131,36 +142,36 @@ class _HomePageState extends State<HomePage> {
                   nextPage(context: context, page: const AppliedJobsPage());
                 }),
             bodyItem(
-                iconData: Icons.bookmark_border_rounded,
+                iconData: Icons.tips_and_updates_outlined,
                 iconColor: Theme.of(context).primaryColor,
-                title: "Saved Jobs",
+                title: "Get Tips",
                 titleColor: Theme.of(context).primaryColor,
                 onTap: () {
-                  nextPage(context: context, page: const SavedJobsPage());
+                  nextPage(context: context, page: const TipsAndAdvice());
                 }),
             bodyItem(
-                iconData: Icons.bookmark_border_rounded,
+                iconData: Icons.account_box_outlined,
                 iconColor: Theme.of(context).primaryColor,
-                title: "Applied Jobs",
+                title: "Edit Profile",
                 titleColor: Theme.of(context).primaryColor,
                 onTap: () {
-                  nextPage(context: context, page: const AppliedJobsPage());
+                  nextPage(context: context, page: const EditProfilePage());
                 }),
             bodyItem(
-                iconData: Icons.bookmark_border_rounded,
+                iconData: Icons.info_outline,
                 iconColor: Theme.of(context).primaryColor,
-                title: "Saved Jobs",
+                title: "About Us",
                 titleColor: Theme.of(context).primaryColor,
                 onTap: () {
-                  nextPage(context: context, page: const SavedJobsPage());
+                  nextPage(context: context, page: const AboutPage());
                 }),
             bodyItem(
-                iconData: Icons.bookmark_border_rounded,
+                iconData: Icons.contact_support_outlined,
                 iconColor: Theme.of(context).primaryColor,
-                title: "Applied Jobs",
+                title: "Help & Support",
                 titleColor: Theme.of(context).primaryColor,
                 onTap: () {
-                  nextPage(context: context, page: const AppliedJobsPage());
+                  nextPage(context: context, page: const HelpSupportPage());
                 }),
           ],
         ),

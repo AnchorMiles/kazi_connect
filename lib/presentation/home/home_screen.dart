@@ -9,11 +9,11 @@ import 'package:kazi_connect/presentation/home/drawer_destinations/terms_of_serv
 import 'package:kazi_connect/presentation/home/edit_profile/edit_profile.dart';
 
 import '../../utils.dart';
-import 'bottomnav_pages/messages.dart';
-import 'bottomnav_pages/profile.dart';
 import 'appbar_destinations/applied_jobs.dart';
 import 'appbar_destinations/feedback.dart';
 import 'appbar_destinations/saved_jobs.dart';
+import 'bottomnav_pages/messages.dart';
+import 'bottomnav_pages/profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,6 +32,13 @@ class _HomeScreenState extends State<HomeScreen> {
     Icons.account_box_outlined
   ];
 
+  List<IconData> bottomBarSelectedIconsData = [
+    Icons.home,
+    Icons.business_center,
+    Icons.message,
+    Icons.account_box
+  ];
+
   List<String> bottomBarIconLabels = [
     "Home",
     "Jobs",
@@ -46,24 +53,21 @@ class _HomeScreenState extends State<HomeScreen> {
     ProfilePage(),
   ];
 
-  Widget _getBottomBar() => BottomNavigationBar(
-        currentIndex: currentPageIndex,
-        onTap: (index) => setState(() => currentPageIndex = index),
+  Widget _getBottomBar() => NavigationBar(
+        selectedIndex: currentPageIndex,
+        onDestinationSelected: (index) =>
+            setState(() => currentPageIndex = index),
         backgroundColor:
             Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-        type: BottomNavigationBarType.fixed,
-        items: List.generate(
+        destinations: List.generate(
           bottomBarIconsData.length,
-          (index) => BottomNavigationBarItem(
+          (index) => NavigationDestination(
             icon: Icon(bottomBarIconsData[index]),
+            selectedIcon: Icon(bottomBarSelectedIconsData[index]),
             label: bottomBarIconLabels[index],
           ),
           growable: false,
         ),
-        selectedIconTheme: IconThemeData(
-          color: Theme.of(context).primaryColor,
-        ),
-        selectedItemColor: Theme.of(context).primaryColor,
       );
 
   @override
@@ -132,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
             duration: const Duration(seconds: 1),
             child: appbarTitles[currentPageIndex]),
         actions: [
-          if (currentPageIndex == 1)
+          if (currentPageIndex == 0 || currentPageIndex == 1)
             IconButton(
                 tooltip: "Search",
                 onPressed: () {
@@ -148,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Icons.edit,
                   color: Theme.of(context).primaryColor,
                 )),
-          if (currentPageIndex != 3)
+          if (currentPageIndex == 0 || currentPageIndex == 1)
             IconButton(
                 tooltip: "Post a Job",
                 onPressed: () {},
