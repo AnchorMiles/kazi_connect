@@ -24,54 +24,49 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text("Jobs"),
+        automaticallyImplyLeading: false,
+        title: Card(
+          child: TextField(
+            autofocus: true,
+            autocorrect: true,
+            focusNode: focusNode,
+            controller: searchController,
+            onChanged: (value) {
+              setState(() {});
+            },
+            onSubmitted: (value) {
+              setState(() {});
+            },
+            onTapOutside: (value) {
+              setState(() {});
+              focusNode.unfocus();
+            },
+            decoration: InputDecoration(
+                hintText: "Search",
+                icon: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.arrow_back)),
+                suffixIcon: IconButton(
+                  tooltip: "Clear",
+                  onPressed: () {
+                    setState(() {
+                      searchController.clear();
+                    });
+                  },
+                  icon: const Icon(Icons.clear),
+                ),
+                focusedBorder: InputBorder.none,
+                enabledBorder: InputBorder.none),
+            textInputAction: TextInputAction.search,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: TextField(
-                autofocus: true,
-                autocorrect: true,
-                focusNode: focusNode,
-                controller: searchController,
-                onChanged: (value) {
-                  setState(() {});
-                },
-                onSubmitted: (value) {
-                  setState(() {});
-                },
-                onTapOutside: (value) {
-                  setState(() {});
-                  focusNode.unfocus();
-                },
-                decoration: InputDecoration(
-                  hintText: "Search",
-                  suffixIcon: IconButton(
-                    tooltip: "Clear",
-                    onPressed: () {
-                      setState(() {
-                        searchController.clear();
-                      });
-                    },
-                    icon: const Icon(Icons.clear),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    borderRadius: BorderRadius.circular(48.0),
-                  ),
-                ),
-                textInputAction: TextInputAction.search,
-              ),
-            ),
             Expanded(
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
