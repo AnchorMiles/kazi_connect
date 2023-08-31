@@ -95,35 +95,65 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     nextPage(context: context, page: const NotificationsPage());
                   },
-                  title: const Text("Notifications"),
-                  leading: const Icon(Icons.notifications_none),
+                  title: Text(
+                    "Notifications",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary),
+                  ),
+                  leading: Icon(
+                      color: Theme.of(context).colorScheme.secondary,
+                      Icons.notifications_none),
                 ),
                 ListTile(
                   onTap: () {
                     nextPage(context: context, page: const HelpSupportPage());
                   },
-                  title: const Text("Help & Support"),
-                  leading: const Icon(Icons.help_outline),
+                  title: Text(
+                    "Help & Support",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary),
+                  ),
+                  leading: Icon(
+                      color: Theme.of(context).colorScheme.secondary,
+                      Icons.help_outline),
                 ),
                 ListTile(
                   onTap: () {
                     nextPage(
                         context: context, page: const TermsOfServicePage());
                   },
-                  title: const Text("Terms of Service"),
-                  leading: const Icon(Icons.playlist_add_check_circle_outlined),
+                  title: Text(
+                    "Terms of Service",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary),
+                  ),
+                  leading: Icon(
+                      color: Theme.of(context).colorScheme.secondary,
+                      Icons.playlist_add_check_circle_outlined),
                 ),
                 ListTile(
                   onTap: () {},
-                  title: const Text("Privacy Policy"),
-                  leading: const Icon(Icons.privacy_tip_outlined),
+                  title: Text(
+                    "Privacy Policy",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary),
+                  ),
+                  leading: Icon(
+                      color: Theme.of(context).colorScheme.secondary,
+                      Icons.privacy_tip_outlined),
                 ),
                 ListTile(
                   onTap: () {
                     nextPage(context: context, page: const AboutPage());
                   },
-                  title: const Text("About"),
-                  leading: const Icon(Icons.help_outline),
+                  title: Text(
+                    "About us",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary),
+                  ),
+                  leading: Icon(
+                      color: Theme.of(context).colorScheme.secondary,
+                      Icons.help_outline),
                 ),
               ],
             ),
@@ -142,7 +172,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   nextPage(context: context, page: const SearchPage());
                 },
-                icon: const Icon(Icons.search)),
+                icon: Icon(
+                  Icons.search,
+                  color: Theme.of(context).colorScheme.secondary,
+                )),
           if (currentPageIndex == 3)
             IconButton(
                 tooltip: "Edit Profile",
@@ -156,9 +189,16 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
                 tooltip: "Post a Job",
                 onPressed: () {},
-                icon: const Icon(Icons.add)),
+                icon: Icon(
+                  Icons.add,
+                  color: Theme.of(context).colorScheme.secondary,
+                )),
           if (currentPageIndex != 3)
             PopupMenuButton(
+                icon: Icon(
+                  Icons.more_vert,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
                 position: PopupMenuPosition.under,
                 onSelected: (value) {
                   switch (value) {
@@ -188,49 +228,81 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (ctx) {
                   return [
                     if (currentPageIndex != 3)
-                      const PopupMenuItem(
+                      PopupMenuItem(
                           value: "Saved Jobs",
                           child: Row(
                             children: [
-                              Icon(Icons.bookmark_border_rounded),
-                              SizedBox(
+                              Icon(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                  Icons.bookmark_border_rounded),
+                              const SizedBox(
                                 width: 12,
                               ),
-                              Text("Saved Jobs")
+                              Text(
+                                "Saved Jobs",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                              )
                             ],
                           )),
                     if (currentPageIndex != 3)
-                      const PopupMenuItem(
+                      PopupMenuItem(
                           value: "Applied Jobs",
                           child: Row(
                             children: [
-                              Icon(Icons.view_timeline_outlined),
-                              SizedBox(
+                              Icon(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                  Icons.view_timeline_outlined),
+                              const SizedBox(
                                 width: 12,
                               ),
-                              Text("Applied Jobs")
+                              Text(
+                                "Applied Jobs",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                              )
                             ],
                           )),
-                    const PopupMenuItem(
+                    PopupMenuItem(
                         value: "Invite Friends",
                         child: Row(
                           children: [
-                            Icon(Icons.share),
-                            SizedBox(
+                            Icon(
+                                color: Theme.of(context).colorScheme.secondary,
+                                Icons.share),
+                            const SizedBox(
                               width: 12,
                             ),
-                            Text("Invite Friends")
+                            Text(
+                              "Invite Friends",
+                              style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary),
+                            )
                           ],
                         )),
-                    const PopupMenuItem(
+                    PopupMenuItem(
                         value: "Feedback",
                         child: Row(
                           children: [
-                            Icon(Icons.feedback_outlined),
-                            SizedBox(
+                            Icon(
+                                color: Theme.of(context).colorScheme.secondary,
+                                Icons.feedback_outlined),
+                            const SizedBox(
                               width: 12,
                             ),
-                            Text("Feedback")
+                            Text(
+                              "Feedback",
+                              style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary),
+                            )
                           ],
                         )),
                   ];

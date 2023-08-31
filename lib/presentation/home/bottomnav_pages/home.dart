@@ -84,18 +84,15 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(height: 16),
         Padding(
           padding: const EdgeInsets.only(left: 8, right: 8),
-          child: SizedBox(
-            height: 200,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(24),
-              child: Image.asset(
-                "assets/image_holder.png",
-                fit: BoxFit.cover,
-              ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(24),
+            child: Image.asset(
+              "assets/person_in_office.png",
+              fit: BoxFit.cover,
             ),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         const Padding(
           padding: EdgeInsets.all(8.0),
           child: Card(

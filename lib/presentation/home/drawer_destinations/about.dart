@@ -8,7 +8,10 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("About"),
+        title: Text(
+          "About us",
+          style: TextStyle(color: Theme.of(context).primaryColor),
+        ),
       ),
       body: ListView(
         children: [],
